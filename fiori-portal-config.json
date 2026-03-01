@@ -1,0 +1,491 @@
+{
+  "portal": {
+    "id": "gndlf-fiori-portal",
+    "title": "GNDLF AIOps for SAP",
+    "version": "1.0.0",
+    "description": "Enterprise Fiori Launchpad powered by GNDLF AIOps",
+    "url": "/ui2/flp",
+    "defaultTheme": "morning",
+    "defaultLanguage": "en"
+  },
+
+  "tileColors": [
+    { "id": 0,  "bg": "#0070f2", "text": "#ffffff", "name": "Blue" },
+    { "id": 1,  "bg": "#1a5cbe", "text": "#ffffff", "name": "Dark Blue" },
+    { "id": 2,  "bg": "#0a6ed1", "text": "#ffffff", "name": "Informative Blue" },
+    { "id": 3,  "bg": "#d1efff", "text": "#0057a3", "name": "Light Blue" },
+    { "id": 4,  "bg": "#188918", "text": "#ffffff", "name": "Positive Green" },
+    { "id": 5,  "bg": "#e8f5e0", "text": "#256f26", "name": "Light Green" },
+    { "id": 6,  "bg": "#c35500", "text": "#ffffff", "name": "Critical Orange" },
+    { "id": 7,  "bg": "#fff3b0", "text": "#6d4c00", "name": "Light Yellow" },
+    { "id": 8,  "bg": "#a100c2", "text": "#ffffff", "name": "Purple" },
+    { "id": 9,  "bg": "#f0d9ff", "text": "#7800a4", "name": "Light Purple" },
+    { "id": 10, "bg": "#354a5f", "text": "#ffffff", "name": "Dark Slate" },
+    { "id": 11, "bg": "#d3dce2", "text": "#354a5f", "name": "Light Slate" }
+  ],
+
+  "appGroups": [
+    {
+      "id": "hcm",
+      "name": "Human Capital Management",
+      "order": 1,
+      "visible": true,
+      "apps": [
+        {
+          "id": "leave",
+          "title": "My Leave Requests",
+          "icon": "calendar",
+          "color": 0,
+          "count": 16,
+          "countLabel": "Active",
+          "semanticObject": "LeaveRequest",
+          "action": "display",
+          "targetUrl": "#LeaveRequest-display",
+          "appType": "transactional",
+          "description": "View and submit leave requests with real-time balance tracking",
+          "visible": true,
+          "order": 1
+        },
+        {
+          "id": "absences",
+          "title": "Manage Absences",
+          "icon": "calendar",
+          "color": 6,
+          "semanticObject": "Absence",
+          "action": "manage",
+          "targetUrl": "#Absence-manage",
+          "appType": "transactional",
+          "description": "Manage employee absence records and policies",
+          "visible": true,
+          "order": 2
+        },
+        {
+          "id": "manage-abs",
+          "title": "Manage Absences",
+          "subtitle": "Team View",
+          "icon": "person",
+          "color": 11,
+          "semanticObject": "Absence",
+          "action": "manageTeam",
+          "targetUrl": "#Absence-manageTeam",
+          "appType": "transactional",
+          "description": "Team-level absence overview for managers",
+          "visible": true,
+          "order": 3
+        },
+        {
+          "id": "directory",
+          "title": "Employee Directory",
+          "icon": "users",
+          "color": 4,
+          "semanticObject": "Employee",
+          "action": "lookup",
+          "targetUrl": "#Employee-lookup",
+          "appType": "factSheet",
+          "description": "Search employees, view org charts and contact details",
+          "visible": true,
+          "order": 4
+        },
+        {
+          "id": "payslip",
+          "title": "Pay Statement",
+          "icon": "document",
+          "color": 10,
+          "semanticObject": "PayStatement",
+          "action": "display",
+          "targetUrl": "#PayStatement-display",
+          "appType": "factSheet",
+          "description": "View current and past pay statements",
+          "visible": true,
+          "order": 5
+        },
+        {
+          "id": "timesheet",
+          "title": "My Timesheet",
+          "icon": "clipboard",
+          "color": 1,
+          "semanticObject": "Timesheet",
+          "action": "manage",
+          "targetUrl": "#Timesheet-manage",
+          "appType": "transactional",
+          "description": "Record and manage working hours by week",
+          "visible": true,
+          "order": 6
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "order": 2,
+      "visible": true,
+      "apps": [
+        {
+          "id": "purchasing",
+          "title": "My Purchasing Documents",
+          "icon": "cart",
+          "color": 2,
+          "count": 15,
+          "countLabel": "Notification",
+          "semanticObject": "PurchaseDocument",
+          "action": "display",
+          "targetUrl": "#PurchaseDocument-display",
+          "appType": "transactional",
+          "description": "Track purchasing documents, requisitions and orders",
+          "visible": true,
+          "order": 1
+        },
+        {
+          "id": "sales-order",
+          "title": "Sales Order Fulfillment",
+          "icon": "chart",
+          "color": 5,
+          "status": "On Track",
+          "semanticObject": "SalesOrder",
+          "action": "fulfill",
+          "targetUrl": "#SalesOrder-fulfill",
+          "appType": "analytical",
+          "description": "Monitor and manage sales order fulfillment pipeline",
+          "visible": true,
+          "order": 2
+        },
+        {
+          "id": "reports",
+          "title": "Manage Process Reports",
+          "icon": "clipboard",
+          "color": 10,
+          "count": 10,
+          "semanticObject": "ProcessReport",
+          "action": "manage",
+          "targetUrl": "#ProcessReport-manage",
+          "appType": "analytical",
+          "description": "Generate and manage financial process reports",
+          "visible": true,
+          "order": 3
+        },
+        {
+          "id": "accounts",
+          "title": "Manage Order Accounts",
+          "icon": "money",
+          "color": 4,
+          "count": 9,
+          "semanticObject": "OrderAccount",
+          "action": "manage",
+          "targetUrl": "#OrderAccount-manage",
+          "appType": "transactional",
+          "description": "Manage order-related accounts and financial postings",
+          "visible": true,
+          "order": 4
+        },
+        {
+          "id": "invoices",
+          "title": "Supplier Invoices",
+          "icon": "document",
+          "color": 7,
+          "count": 3,
+          "countLabel": "New",
+          "semanticObject": "SupplierInvoice",
+          "action": "manage",
+          "targetUrl": "#SupplierInvoice-manage",
+          "appType": "transactional",
+          "description": "Review, validate, and post supplier invoices",
+          "visible": true,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "analytics",
+      "name": "Analytics",
+      "order": 3,
+      "visible": true,
+      "apps": [
+        {
+          "id": "dashboard",
+          "title": "Analytics Dashboard",
+          "icon": "chart",
+          "color": 8,
+          "semanticObject": "Analytics",
+          "action": "dashboard",
+          "targetUrl": "#Analytics-dashboard",
+          "appType": "analytical",
+          "description": "Central analytics hub with KPIs and data visualizations",
+          "visible": true,
+          "order": 1
+        },
+        {
+          "id": "kpi",
+          "title": "KPI Overview",
+          "subtitle": "Real-time Metrics",
+          "icon": "chart",
+          "color": 2,
+          "semanticObject": "KPI",
+          "action": "display",
+          "targetUrl": "#KPI-display",
+          "appType": "analytical",
+          "description": "Real-time key performance indicator monitoring",
+          "visible": true,
+          "order": 2
+        },
+        {
+          "id": "customer",
+          "title": "Customer Insights",
+          "icon": "globe",
+          "color": 0,
+          "count": 1,
+          "countLabel": "New",
+          "semanticObject": "CustomerInsight",
+          "action": "analyze",
+          "targetUrl": "#CustomerInsight-analyze",
+          "appType": "analytical",
+          "description": "Customer behavior analytics and segmentation insights",
+          "visible": true,
+          "order": 3
+        },
+        {
+          "id": "analyze",
+          "title": "Analyze Orders",
+          "icon": "chart",
+          "color": 6,
+          "count": 3,
+          "countLabel": "New",
+          "semanticObject": "Order",
+          "action": "analyze",
+          "targetUrl": "#Order-analyze",
+          "appType": "analytical",
+          "description": "Deep-dive analytics on order trends and patterns",
+          "visible": true,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "admin",
+      "name": "Administration",
+      "order": 4,
+      "visible": true,
+      "apps": [
+        {
+          "id": "system",
+          "title": "System Status",
+          "icon": "settings",
+          "color": 10,
+          "semanticObject": "System",
+          "action": "status",
+          "targetUrl": "#System-status",
+          "appType": "factSheet",
+          "description": "Monitor system health, services, and infrastructure status",
+          "visible": true,
+          "order": 1
+        },
+        {
+          "id": "notifications",
+          "title": "Notifications",
+          "icon": "bell",
+          "color": 9,
+          "count": 3,
+          "semanticObject": "Notification",
+          "action": "display",
+          "targetUrl": "#Notification-display",
+          "appType": "transactional",
+          "description": "View and manage all system and workflow notifications",
+          "visible": true,
+          "order": 2
+        },
+        {
+          "id": "learning",
+          "title": "Learning",
+          "icon": "document",
+          "color": 4,
+          "semanticObject": "Learning",
+          "action": "display",
+          "targetUrl": "#Learning-display",
+          "appType": "factSheet",
+          "description": "Training materials, courses, and certification tracking",
+          "visible": true,
+          "order": 3
+        },
+        {
+          "id": "business",
+          "title": "Business Data",
+          "icon": "globe",
+          "color": 11,
+          "semanticObject": "BusinessData",
+          "action": "display",
+          "targetUrl": "#BusinessData-display",
+          "appType": "factSheet",
+          "description": "Access master data and business configuration",
+          "visible": true,
+          "order": 4
+        }
+      ]
+    }
+  ],
+
+  "catalogApps": [
+    {
+      "id": "crm-appt",
+      "title": "CRM Appointments",
+      "icon": "calendar",
+      "color": 6,
+      "description": "Create sales appointments integrated with customer accounts",
+      "semanticObject": "Appointment",
+      "action": "create",
+      "targetUrl": "#Appointment-create",
+      "appType": "transactional",
+      "visible": true
+    },
+    {
+      "id": "approve-po",
+      "title": "Approve Purchase Orders",
+      "icon": "check",
+      "color": 4,
+      "description": "Review and approve purchase orders from your team",
+      "semanticObject": "PurchaseOrder",
+      "action": "approve",
+      "targetUrl": "#PurchaseOrder-approve",
+      "appType": "transactional",
+      "visible": true
+    },
+    {
+      "id": "travel-exp",
+      "title": "Travel Expenses",
+      "icon": "truck",
+      "color": 2,
+      "description": "Submit and manage travel expense reports",
+      "semanticObject": "TravelExpense",
+      "action": "manage",
+      "targetUrl": "#TravelExpense-manage",
+      "appType": "transactional",
+      "visible": true
+    },
+    {
+      "id": "asset-mgmt",
+      "title": "Asset Management",
+      "icon": "settings",
+      "color": 10,
+      "description": "Track and manage company assets",
+      "semanticObject": "Asset",
+      "action": "manage",
+      "targetUrl": "#Asset-manage",
+      "appType": "transactional",
+      "visible": true
+    },
+    {
+      "id": "quality",
+      "title": "Quality Inspections",
+      "icon": "clipboard",
+      "color": 8,
+      "description": "Perform and track quality inspection processes",
+      "semanticObject": "QualityInspection",
+      "action": "manage",
+      "targetUrl": "#QualityInspection-manage",
+      "appType": "transactional",
+      "visible": true
+    },
+    {
+      "id": "warehouse",
+      "title": "Warehouse Management",
+      "icon": "cart",
+      "color": 1,
+      "description": "Manage warehouse inventory and operations",
+      "semanticObject": "Warehouse",
+      "action": "manage",
+      "targetUrl": "#Warehouse-manage",
+      "appType": "transactional",
+      "visible": true
+    }
+  ],
+
+  "notifications": [
+    {
+      "id": 1,
+      "title": "Leave Request Approved",
+      "description": "Your vacation request for Mar 15-19 has been approved",
+      "time": "2 min ago",
+      "type": "success",
+      "read": false,
+      "priority": "high",
+      "semanticObject": "LeaveRequest",
+      "action": "display"
+    },
+    {
+      "id": 2,
+      "title": "Purchase Order #4501 Pending",
+      "description": "Awaiting your review and approval",
+      "time": "15 min ago",
+      "type": "warning",
+      "read": false,
+      "priority": "high",
+      "semanticObject": "PurchaseOrder",
+      "action": "approve"
+    },
+    {
+      "id": 3,
+      "title": "Sales Order Completed",
+      "description": "Order #8832 has been fulfilled and shipped",
+      "time": "1 hr ago",
+      "type": "info",
+      "read": false,
+      "priority": "medium",
+      "semanticObject": "SalesOrder",
+      "action": "display"
+    },
+    {
+      "id": 4,
+      "title": "System Maintenance",
+      "description": "Scheduled maintenance window: Sunday 2-4 AM",
+      "time": "3 hrs ago",
+      "type": "info",
+      "read": true,
+      "priority": "low",
+      "semanticObject": "System",
+      "action": "status"
+    },
+    {
+      "id": 5,
+      "title": "New Employee Onboarded",
+      "description": "Sarah Chen has joined the Engineering team",
+      "time": "5 hrs ago",
+      "type": "info",
+      "read": true,
+      "priority": "low",
+      "semanticObject": "Employee",
+      "action": "display"
+    }
+  ],
+
+  "transactionCodes": [
+    { "code": "/UI2/FLP",           "description": "SAP Fiori Launchpad Access" },
+    { "code": "/UI2/CACHE",         "description": "Delete/Manage Cache Entries" },
+    { "code": "/UI2/FLPD_CUST",     "description": "Launchpad Designer (Configuration)" },
+    { "code": "/UI2/FLP_CONTCHECK", "description": "Content Consistency Check" }
+  ],
+
+  "userRoles": [
+    {
+      "id": "employee",
+      "name": "Employee",
+      "description": "Standard employee self-service access",
+      "assignedGroups": ["hcm"]
+    },
+    {
+      "id": "manager",
+      "name": "Manager",
+      "description": "Manager approval and team overview access",
+      "assignedGroups": ["hcm", "admin"]
+    },
+    {
+      "id": "finance",
+      "name": "Finance Analyst",
+      "description": "Finance operations and reporting access",
+      "assignedGroups": ["finance", "analytics"]
+    },
+    {
+      "id": "admin",
+      "name": "Administrator",
+      "description": "Full portal administration access",
+      "assignedGroups": ["hcm", "finance", "analytics", "admin"]
+    }
+  ]
+}
